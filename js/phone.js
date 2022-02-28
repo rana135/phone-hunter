@@ -21,7 +21,7 @@ const displayGadget = data =>{
         createDiv.classList.add ("col")
         createDiv.innerHTML=`
         <div class="card" style="width: 18rem;">
-  <img src="${phones.image}" class="card-img-top" alt="...">
+  <img class="w-75 mx-auto" src="${phones.image}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">
     <strong> Phone Name:- </strong>
@@ -33,14 +33,14 @@ const displayGadget = data =>{
     ${phones.brand}
     </p>
 
-    <button onclick="loadphoneBySlug('${phones.slug}')">Details
+    <button class="btn btn-primary" onclick="loadphoneBySlug('${phones.slug}')">Details
     </button>
 
   </div>
 </div>
         `
         parents.appendChild(createDiv)
-    })
+    })   
 }
 
 
@@ -54,13 +54,10 @@ const loadphoneBySlug = slug =>{
 const displayPhoneDetail = phones =>{
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent= '';
-    // if(phones.releaseDate == ''){
-    //     alert ("found");
-    // }
     const makingDiv = document.createElement("div");
     makingDiv.classList.add("cssDesign");
     makingDiv.innerHTML =`
-    <div class="card" style="width: 30rem;">
+    <div class="card" style="width: 35rem;">
 
   <img class="w-50 mx-auto" src="${phones.image}" 
   class="card-img-top" alt="...">
