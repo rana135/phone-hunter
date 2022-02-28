@@ -1,3 +1,4 @@
+
 const getButton = buttonField =>{
     const inputId = document.getElementById("input-id");
     const inputText = inputId.value;
@@ -15,6 +16,7 @@ const getButton = buttonField =>{
 const displayGadget = data =>{
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
+
     data.forEach(phones =>{
         console.log(phones);
         const createDiv = document.createElement("div");
@@ -40,7 +42,8 @@ const displayGadget = data =>{
 </div>
         `
         parents.appendChild(createDiv)
-    })   
+       
+    }) 
 }
 
 
@@ -57,12 +60,12 @@ const displayPhoneDetail = phones =>{
     const makingDiv = document.createElement("div");
     makingDiv.classList.add("cssDesign");
     makingDiv.innerHTML =`
-    <div class="card" style="width: 35rem;">
-
-  <img class="w-50 mx-auto" src="${phones.image}" 
-  class="card-img-top" alt="...">
-
-  <div class="card-body">
+    <div class="card" style="width: 40rem;">
+  <div class="row g-0">
+  <div class="col-md-4">
+    <img src="${phones.image}" class=" pic   rounded-start" alt="...">
+  </div>
+  <div class="card-body w-50">
     <h5 class="card-title">
     <strong> Phone Name:- </strong>
     ${phones.name}
@@ -155,6 +158,7 @@ const displayPhoneDetail = phones =>{
     </p>
 
   </div>
+</div>
 </div>
     `
     phoneDetails.appendChild(makingDiv);
