@@ -1,23 +1,28 @@
 
+// get button & searchInput:-
 const getButton = buttonField =>{
     const inputId = document.getElementById("input-id");
     const inputText = inputId.value;
     inputId.value ='';
+    //error Handler:-
     if(inputText == ''){
         alert("please write something");
     } 
+    // loading mobile data :-
     else{
         fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
         .then(response => response.json())
         .then (data => displayGadget(data.data))
     }
 }
-
+//
+// Mobile will show when searched:-
 const displayGadget = dataload =>{
     const data = dataload.slice(0, 20);
     console.log(data);
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
+
     data.forEach(phones =>{
         console.log(phones);
         const createDiv = document.createElement("div");
@@ -53,7 +58,7 @@ const displayGadget = dataload =>{
     
 }
 
-
+ // view phone Full Details:-
 const loadphoneBySlug = slug =>{
     console.log(slug);
     fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
@@ -67,7 +72,7 @@ const displayPhoneDetail = phones =>{
     const failedError = document.getElementById("error-message");
     
 
-
+    //error Handler:-
     if(phones.length === 0){
         failedError.style.display = 'block';
     }
