@@ -1,6 +1,9 @@
 /* align part start */
 .t-align{
     text-align: center;
+    background-color: rgba(13, 13, 196, 0.616);
+    color: white;
+    border-radius: 7px;
 }
 /* picture sizing  */
 .pic{

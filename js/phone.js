@@ -17,12 +17,16 @@ const getButton = buttonField =>{
 }
 //
 // Mobile will show when searched:-
-const displayGadget = dataload =>{
-    const data = dataload.slice(0, 20);
+const displayGadget = phone =>{
+    //Slice to get 20 mobiles:-
+    const data = phone.slice(0, 20);
     console.log(data);
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
-
+    if (phone.length == 0) {
+      alert("show no phone found");
+  }
+   else{
     data.forEach(phones =>{
         console.log(phones);
         const createDiv = document.createElement("div");
@@ -47,15 +51,9 @@ const displayGadget = dataload =>{
   </div>
 </div>
         `
-        parents.appendChild(createDiv)
-       
-    }) 
-    
-    
-
-
-
-    
+        parents.appendChild(createDiv) 
+    })   
+   }
 }
 
  // view phone Full Details:-
@@ -70,34 +68,28 @@ const displayPhoneDetail = phones =>{
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent= '';
     const failedError = document.getElementById("error-message");
-    
-
-    //error Handler:-
-    if(phones.length === 0){
-        failedError.style.display = 'block';
-    }
-
-    else{
         const makingDiv = document.createElement("div");
     makingDiv.classList.add("cssDesign");
     makingDiv.innerHTML =`
-    <div class="card" style="width: 40rem;">
-  <div class="row  g-0">
+    <div class="card">
+  <div class="row  g-3">
   <div class="col-md-5">
     <img src="${phones.image}" class=" pic   rounded-start" alt="...">
   </div>
   <div class="card-body w-25">
-    <h5 class="card-title">
+    <h1 class="card-title">
     <strong> Phone Name:- </strong>
     ${phones.name}
-    </h5>
+    </h1>
 
     <p class="card-text">
     <strong> Release Date:- </strong>
     ${phones.releaseDate}
     </p>
+
+    <p> <strong> ${ phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </strong> </p>
     
-    <p class="t-align"> <strong> <u> mainFeatures </u> </strong </p>
+    <p class="t-align"> <strong>  mainFeatures  </strong </p>
 
      <p class="card-text">
     <strong> chipSet:- </strong>
@@ -114,7 +106,7 @@ const displayPhoneDetail = phones =>{
     ${phones.mainFeatures.memory} 
     </p>
     
-    <p class="t-align"> <strong> <u> others </u> </strong </p>
+    <p class="t-align"> <strong>  others  </strong </p>
 
     <p class="card-text">
     <strong> Bluetooth:- </strong>
@@ -146,7 +138,7 @@ const displayPhoneDetail = phones =>{
     ${phones.others.WLAN} 
     </p>
 
-    <p class="t-align"> <strong> <u> Sensor </u> </strong </p>
+    <p class="t-align"> <strong>  Sensor  </strong </p>
 
     <p class="card-text">
     <strong> Sensors(0):- </strong>
@@ -183,11 +175,6 @@ const displayPhoneDetail = phones =>{
 </div>
     `
     phoneDetails.appendChild(makingDiv);
-    
-
-    }
-
-
 }
 
 
