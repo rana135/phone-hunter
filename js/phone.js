@@ -13,10 +13,11 @@ const getButton = buttonField =>{
     }
 }
 
-const displayGadget = data =>{
+const displayGadget = dataload =>{
+    const data = dataload.slice(0, 20);
+    console.log(data);
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
-
     data.forEach(phones =>{
         console.log(phones);
         const createDiv = document.createElement("div");
@@ -44,6 +45,12 @@ const displayGadget = data =>{
         parents.appendChild(createDiv)
        
     }) 
+    
+    
+
+
+
+    
 }
 
 
@@ -57,15 +64,24 @@ const loadphoneBySlug = slug =>{
 const displayPhoneDetail = phones =>{
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent= '';
-    const makingDiv = document.createElement("div");
+    const failedError = document.getElementById("error-message");
+    
+
+
+    if(phones.length === 0){
+        failedError.style.display = 'block';
+    }
+
+    else{
+        const makingDiv = document.createElement("div");
     makingDiv.classList.add("cssDesign");
     makingDiv.innerHTML =`
     <div class="card" style="width: 40rem;">
-  <div class="row g-0">
-  <div class="col-md-4">
+  <div class="row  g-0">
+  <div class="col-md-5">
     <img src="${phones.image}" class=" pic   rounded-start" alt="...">
   </div>
-  <div class="card-body w-50">
+  <div class="card-body w-25">
     <h5 class="card-title">
     <strong> Phone Name:- </strong>
     ${phones.name}
@@ -162,6 +178,11 @@ const displayPhoneDetail = phones =>{
 </div>
     `
     phoneDetails.appendChild(makingDiv);
+    
+
+    }
+
+
 }
 
 
