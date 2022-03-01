@@ -24,7 +24,7 @@ const displayGadget = phone =>{
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
     if (phone.length == 0) {
-      alert("show no phone found");
+      alert("No phone found");
   }
    else{
     data.forEach(phones =>{
