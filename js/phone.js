@@ -1,3 +1,5 @@
+// get error id
+const error = document.getElementById('error')
 
 // get button & searchInput:-
 const getButton = buttonField =>{
@@ -6,10 +8,11 @@ const getButton = buttonField =>{
     inputId.value ='';
     //error Handler:-
     if(inputText == ''){
-        alert("please write something");
+        error.innerText='Please give me search value'
     } 
     // loading mobile data :-
     else{
+      error.innerText =''
         fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
         .then(response => response.json())
         .then (data => displayGadget(data.data))
@@ -23,8 +26,9 @@ const displayGadget = phone =>{
     console.log(data);
     const parents = document.getElementById("displaySearch");
     parents.textContent= '';
+    // Error Handler:-
     if (phone.length == 0) {
-      alert("No phone found");
+      error.innerText='Result did not found'
   }
    else{
     data.forEach(phones =>{
@@ -56,14 +60,15 @@ const displayGadget = phone =>{
    }
 }
 
- // view phone Full Details:-
+ // show phone details:-
 const loadphoneBySlug = slug =>{
     console.log(slug);
     fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
     .then(response => response.json())
     .then (data => displayPhoneDetail(data.data))
 }
-                                
+   
+////view phone Full Details:-
 const displayPhoneDetail = phones =>{
     const phoneDetails = document.getElementById("phone-details");
     phoneDetails.textContent= '';
@@ -82,93 +87,88 @@ const displayPhoneDetail = phones =>{
     ${phones.name}
     </h1>
 
-    <p class="card-text">
-    <strong> Release Date:- </strong>
-    ${phones.releaseDate}
-    </p>
-
-    <p> <strong> ${ phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </strong> </p>
+    <p> <strong> Released: </strong> ${ phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </p>
     
     <p class="t-align"> <strong>  mainFeatures  </strong </p>
 
-     <p class="card-text">
+    <li class="list-group-item">
     <strong> chipSet:- </strong>
     ${phones.mainFeatures.chipSet}
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Display Size:- </strong>
     ${phones.mainFeatures.displaySize}
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> memory:- </strong>
     ${phones.mainFeatures.memory} 
-    </p>
+    </li>
     
-    <p class="t-align"> <strong>  others  </strong </p>
+    <p class="t-align mt-3"> <strong>  others  </strong </p>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Bluetooth:- </strong>
     ${phones.others.Bluetooth} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> GPS:- </strong>
     ${phones.others.GPS} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> NFC:- </strong>
     ${phones.others.NFC} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Radio:- </strong>
     ${phones.others.Radio} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> USB:- </strong>
     ${phones.others.USB} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> WLAN:- </strong>
     ${phones.others.WLAN} 
-    </p>
+    </li>
 
-    <p class="t-align"> <strong>  Sensor  </strong </p>
+    <p class="t-align mt-3"> <strong>  Sensor  </strong </p>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Sensors(0):- </strong>
     ${phones.mainFeatures.sensors[0]} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Sensors(1):- </strong>
     ${phones.mainFeatures.sensors[1]} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Sensors(2):- </strong>
     ${phones.mainFeatures.sensors[2]} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Sensors(3):- </strong>
     ${phones.mainFeatures.sensors[3]} 
-    </p>
+    </li>
 
-    <p class="card-text">
+    <li class="list-group-item">
     <strong> Sensors(4):- </strong>
     ${phones.mainFeatures.sensors[4]} 
-    </p>
-    
-    <p class="card-text">
+    </li>
+
+    <li class="list-group-item">
     <strong> Sensors(5):- </strong>
     ${phones.mainFeatures.sensors[5]} 
-    </p>
+    </li>
 
   </div>
 </div>
