@@ -49,7 +49,7 @@ const displayGadget = phone =>{
     ${phones.brand}
     </p>
 
-    <button class="btn btn-primary" onclick="loadphoneBySlug('${phones.slug}')">Details
+    <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#phone-details" onclick="loadphoneBySlug('${phones.slug}')">Details
     </button>
 
   </div>
@@ -76,6 +76,15 @@ const displayPhoneDetail = phones =>{
         const makingDiv = document.createElement("div");
     makingDiv.classList.add("cssDesign");
     makingDiv.innerHTML =`
+    <div class="text-end">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    </button>
+</div>
+<div class="modal-body">
+
+
+
+
     <div class="card">
   <div class="row  g-3">
   <div class="col-md-5">
@@ -171,6 +180,7 @@ const displayPhoneDetail = phones =>{
     </li>
 
   </div>
+</div>
 </div>
 </div>
     `
