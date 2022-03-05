@@ -2,40 +2,48 @@
 const error = document.getElementById('error')
 
 // get button & searchInput:-
-const getButton = buttonField =>{
-    const inputId = document.getElementById("input-id");
-    const inputText = inputId.value;
-    inputId.value ='';
-    //error Handler:-
-    if(inputText == ''){
-        error.innerText='Please give me search value'
-    } 
-    // loading mobile data :-
-    else{
-      error.innerText =''
-        fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
-        .then(response => response.json())
-        .then (data => displayGadget(data.data))
-    }
+const getButton = buttonField => {
+  const inputId = document.getElementById("input-id");
+  const inputText = inputId.value;
+  inputId.value = '';
+  //error Handler:-
+  if (inputText == '') {
+    error.innerText = 'Please give me search value'
+    error.style.backgroundColor = "orange";
+    error.style.maxWidth = "38%";
+    error.style.borderRadius = "10px";
+    error.style.marginLeft = "280px";
+    error.style.marginTop = "30px";
+  }
+  // loading mobile data :-
+  else {
+    error.innerText = '';
+    fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
+      .then(response => response.json())
+      .then(data => displayGadget(data.data))
+  }
 }
 //
 // Mobile will show when searched:-
-const displayGadget = phone =>{
-    //Slice to get 20 mobiles:-
-    const data = phone.slice(0, 20);
-    console.log(data);
-    const parents = document.getElementById("displaySearch");
-    parents.textContent= '';
-    // Error Handler:-
-    if (phone.length == 0) {
-      error.innerText='Result did not found'
+const displayGadget = phone => {
+  //Slice to get 20 mobiles:-
+  const data = phone.slice(0, 20);
+  const parents = document.getElementById("displaySearch");
+  parents.textContent = '';
+  // Error Handler:-
+  if (phone.length == 0) {
+    error.innerText = 'Result did not found'
+    error.style.backgroundColor = "orange";
+    error.style.maxWidth = "38%";
+    error.style.borderRadius = "10px";
+    error.style.marginLeft = "280px";
   }
-   else{
-    data.forEach(phones =>{
-        console.log(phones);
-        const createDiv = document.createElement("div");
-        createDiv.classList.add ("col")
-        createDiv.innerHTML=`
+  else {
+    data.forEach(phones => {
+      console.log(phones);
+      const createDiv = document.createElement("div");
+      createDiv.classList.add("col")
+      createDiv.innerHTML = `
         <div class="card" style="width: 18rem;">
   <img class="w-75 mx-auto" src="${phones.image}" class="card-img-top" alt="...">
   <div class="card-body">
@@ -55,36 +63,31 @@ const displayGadget = phone =>{
   </div>
 </div>
         `
-        parents.appendChild(createDiv) 
-    })   
-   }
+      parents.appendChild(createDiv)
+    })
+  }
 }
 
- // show phone details:-
-const loadphoneBySlug = slug =>{
-    console.log(slug);
-    fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
+// show phone details:-
+const loadphoneBySlug = slug => {
+  fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
     .then(response => response.json())
-    .then (data => displayPhoneDetail(data.data))
+    .then(data => displayPhoneDetail(data.data))
 }
-   
+
 ////view phone Full Details:-
-const displayPhoneDetail = phones =>{
-    const phoneDetails = document.getElementById("phone-details");
-    phoneDetails.textContent= '';
-    const failedError = document.getElementById("error-message");
-        const makingDiv = document.createElement("div");
-    makingDiv.classList.add("cssDesign");
-    makingDiv.innerHTML =`
-    <div class="text-end">
+const displayPhoneDetail = phones => {
+  const phoneDetails = document.getElementById("phone-details");
+  phoneDetails.textContent = '';
+  const makingDiv = document.createElement("div");
+  makingDiv.classList.add("cssDesign");
+  makingDiv.innerHTML = `
+    <div  class="text-end">
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
     </button>
+   
 </div>
 <div class="modal-body">
-
-
-
-
     <div class="card">
   <div class="row  g-3">
   <div class="col-md-5">
@@ -96,7 +99,7 @@ const displayPhoneDetail = phones =>{
     ${phones.name}
     </h1>
 
-    <p> <strong> Released: </strong> ${ phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </p>
+    <p> <strong> Released: </strong> ${phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </p>
     
     <p class="t-align"> <strong>  mainFeatures  </strong </p>
 
@@ -116,35 +119,29 @@ const displayPhoneDetail = phones =>{
     </li>
     
     <p class="t-align mt-3"> <strong>  others  </strong </p>
-
+    
     <li class="list-group-item">
-    <strong> Bluetooth:- </strong>
-    ${phones.others.Bluetooth} 
+    <p> <strong> Bluetooth: </strong> ${phones.others.Bluetooth ? phones.others.Bluetooth : 'Bluetooth no Found'} </p>
     </li>
 
     <li class="list-group-item">
-    <strong> GPS:- </strong>
-    ${phones.others.GPS} 
+    <p> <strong> GPS: </strong> ${phones.others.GPS ? phones.others.GPS : 'GPS no Found'} </p>
     </li>
 
     <li class="list-group-item">
-    <strong> NFC:- </strong>
-    ${phones.others.NFC} 
+    <p> <strong> NFC: </strong> ${phones.others.NFC ? phones.others.NFC : 'NFC no Found'} </p>
     </li>
 
     <li class="list-group-item">
-    <strong> Radio:- </strong>
-    ${phones.others.Radio} 
+    <p> <strong> Radio: </strong> ${phones.others.Radio ? phones.others.Radio : 'Radio no Found'} </p>
     </li>
 
     <li class="list-group-item">
-    <strong> USB:- </strong>
-    ${phones.others.USB} 
+    <p> <strong> USB: </strong> ${phones.others.USB ? phones.others.USB : 'USB no Found'} </p>
     </li>
 
     <li class="list-group-item">
-    <strong> WLAN:- </strong>
-    ${phones.others.WLAN} 
+    <p> <strong> WLAN: </strong> ${phones.others.WLAN ? phones.others.WLAN : 'WLAN no Found'} </p>
     </li>
 
     <p class="t-align mt-3"> <strong>  Sensor  </strong </p>
@@ -179,15 +176,16 @@ const displayPhoneDetail = phones =>{
     ${phones.mainFeatures.sensors[5]} 
     </li>
 
+    <div class="text-end">
+    <button type="button" class="btn btn-primary mt-2" data-bs-dismiss="modal">Close</button>
+    </div>
   </div>
 </div>
 </div>
 </div>
     `
-    phoneDetails.appendChild(makingDiv);
+  phoneDetails.appendChild(makingDiv);
 }
-
-
 
 
 

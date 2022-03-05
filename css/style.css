@@ -1,4 +1,12 @@
-/* align part start */
+body{
+    background-color: #13141b;
+    background-image: url(image/bg-image.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+}
+
+/* feature/others align part start */
 .t-align{
     text-align: center;
     background-color: rgba(13, 13, 196, 0.616);
@@ -10,4 +18,7 @@
     margin-top: 55%;
     width:75%;
     margin-left: 40px;
+}
+.gif{
+    margin-left: 25%;
 }
