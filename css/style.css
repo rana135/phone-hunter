@@ -1,6 +1,6 @@
-body{
+.body-style{
     background-color: #13141b;
-    background-image: url(image/bg-image.png);
+    background-image: url(/image/bg-image.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: top;
@@ -15,10 +15,25 @@ body{
 }
 /* img sizing  */
 .pic{
-    margin-top: 55%;
-    width:75%;
+    margin-top:25rem;
+    width:15rem;
     margin-left: 40px;
 }
 .gif{
-    margin-left: 25%;
+    margin-left: 35%;
 }
+/* Card part design */
+.card-img{
+    background-color: #07091381;
+    border-radius: 40px;
+}
+.card:hover{
+    background-color: antiquewhite;
+    border-radius: 30px;
+    max-width: 100%;
+    box-shadow: 6px 5px 10px lightgray, -6px -5px 10px gray;
+    transition: 0.5s ease-in-out;
+    transform: rotateY(35deg);
+    
+}
+

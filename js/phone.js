@@ -44,8 +44,10 @@ const displayGadget = phone => {
       const createDiv = document.createElement("div");
       createDiv.classList.add("col")
       createDiv.innerHTML = `
-        <div class="card" style="width: 18rem;">
-  <img class="w-75 mx-auto" src="${phones.image}" class="card-img-top" alt="...">
+        <div class="card rounded-3 text-center ms-3" style="width: 15rem;">
+        <div class="card-body card-img">
+  <img class="w-50 mx-auto mt-4 rounded-3" src="${phones.image}" class="card-img-top" alt="...">
+  </div>
   <div class="card-body">
     <h5 class="card-title">
     <strong> Phone Name:- </strong>
@@ -87,11 +89,11 @@ const displayPhoneDetail = phones => {
     </button>
    
 </div>
-<div class="modal-body">
+<div class="modal-body w-75 mx-auto">
     <div class="card">
   <div class="row  g-3">
   <div class="col-md-5">
-    <img src="${phones.image}" class=" pic   rounded-start" alt="...">
+    <img src="${phones.image}" class=" pic   rounded-3" alt="...">
   </div>
   <div class="card-body w-25">
     <h1 class="card-title">
