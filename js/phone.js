@@ -85,7 +85,7 @@ const displayPhoneDetail = phones => {
   makingDiv.classList.add("cssDesign");
   makingDiv.innerHTML = `
     <div  class="text-end">
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    <button type="button" class="btn-close btn-close-primary btn-primary" data-bs-dismiss="modal" aria-label="Close">
     </button>
    
 </div>
