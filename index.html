@@ -20,14 +20,54 @@
 </head>
 
 <body class="body-style">
-    <!-- marquee part start -->
-    <marquee direction="" scrollamount="12" behavior="alternate" class=" bg-secondary fs-2 m-3 p-2 fw-bold text-white rounded-3 ">
-        Welcome To Phone Gadget World</marquee>
+
+    <header>
+        <!-- navBar Field -->
+        <div class="navBar">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid container" >
+                  <a class="navbar-brand fw-bolder fs-4" href="">Welcome To Phone Gadget World</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="">Link</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Carusel -->
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner mb-0">
+              <div class="carousel-item active">
+                <img height="400px" src="image/image2.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item ">
+                <img height="400px" src="image/image.jpg" class="d-block w-100" alt="...">
+              </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </header>
 
     <!-- Search Input part start -->
     <section>
-        <h1 class="text-center fw-bold fs-1 text-light mt-2">Please Search Your Phone gadgets</h1>
-        <div class="input-group mb-3 w-50 text-center mx-auto m-3">
+        <h1 class="text-center fw-bold fs-1 text-light mt-0">Please Search Your Phone gadgets</h1>
+        <div class="input-group mb-3 w-50 text-center mx-auto">
             <input id="input-id" type="text" class="form-control" placeholder="Search your Mobile here"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button onclick="getButton()" class="btn btn-secondary mx-2 rounded" type="button"
@@ -53,7 +93,7 @@
             </div>
         </div>
     </section>
-
+    
     <section>
         <!-- show result -->
         <div id='displaySearch' class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-2 g-4 m-4"></div>

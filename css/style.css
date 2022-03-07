@@ -25,15 +25,10 @@
 /* Card part design */
 .card-img{
     background-color: #07091381;
-    border-radius: 40px;
 }
 .card:hover{
-    background-color: antiquewhite;
+    transform: scale(1.1);
+    transition: .5s ease-in-out;
     border-radius: 30px;
-    max-width: 100%;
-    box-shadow: 6px 5px 10px lightgray, -6px -5px 10px gray;
-    transition: 0.4s ease-in-out;
-    transform: rotateY(35deg);
-    
+    background-color: antiquewhite;
 }
-

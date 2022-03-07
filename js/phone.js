@@ -67,7 +67,7 @@ const displayGadget = phone => {
         `
       parents.appendChild(createDiv)
     })
-  }
+  } 
 }
 
 // show phone details:-
