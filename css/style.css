@@ -32,3 +32,18 @@
     border-radius: 30px;
     background-color: antiquewhite;
 }
+.brand-btn,
+#search-btn {
+    background: linear-gradient( rgb(0, 183, 255), rgb(123, 255, 0));
+    font-weight: 700;
+    color:blue;
+    border: 2px solid gray;
+}
+
+.brand-btn:hover {
+    transform: scale(1.10);
+    transition: transform .3s ease-in-out;
+    background: linear-gradient( rgb(20, 20, 20), rgb(7, 212, 248));
+    border: 2px solid rgb(255, 0, 200);
+    color: rgb(221, 251, 119) !important;
+}

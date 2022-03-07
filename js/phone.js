@@ -59,7 +59,7 @@ const displayGadget = phone => {
     ${phones.brand}
     </p>
 
-    <button class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#phone-details" onclick="loadphoneBySlug('${phones.slug}')">Details
+    <button class="btn btn-primary  brand-btn"data-bs-toggle="modal" data-bs-target="#phone-details" onclick="loadphoneBySlug('${phones.slug}')">Details
     </button>
 
   </div>
