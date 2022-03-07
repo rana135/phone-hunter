@@ -93,7 +93,7 @@ const displayPhoneDetail = phones => {
     <div class="card">
   <div class="row  g-3">
   <div class="col-md-5">
-    <img src="${phones.image}" class=" pic   rounded-3" alt="...">
+    <img src="${phones.image}" class=" pic   rounded-3 img-fluid" alt="...">
   </div>
   <div class="card-body w-25">
     <h1 class="card-title">
