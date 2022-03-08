@@ -38,7 +38,7 @@ const displayGadget = phone => {
     error.style.borderRadius = "10px";
     error.style.marginLeft = "280px";
   }
-  else {
+  else{
     data.forEach(phones => {
       console.log(phones);
       const createDiv = document.createElement("div");
@@ -90,20 +90,26 @@ const displayPhoneDetail = phones => {
    
 </div>
 <div class="modal-body w-75 mx-auto">
-    <div class="card">
+    <div class="card row-design bg-secondary p-2 text-light bg-opacity-25" id="opacity-style">
   <div class="row  g-3">
   <div class="col-md-5">
+
+  
+  <h1 class="card-title ms-4 mt-3 ">
+  <strong> Phone Name:- </strong>
+  </h1>
+
     <img src="${phones.image}" class=" pic   rounded-3 img-fluid" alt="...">
   </div>
   <div class="card-body w-25">
-    <h1 class="card-title">
-    <strong> Phone Name:- </strong>
+    <h1 class="card-title ms-3 ">
+    <strong> </strong>
     ${phones.name}
     </h1>
 
-    <p> <strong> Released: </strong> ${phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </p>
+    <p class="ms-3"> <strong> Released: </strong> ${phones.releaseDate ? phones.releaseDate : 'No Release Date Found'} </p>
     
-    <p class="t-align"> <strong>  mainFeatures  </strong </p>
+    <p class="t-align mt-4"> <strong>  mainFeatures  </strong </p>
 
     <li class="list-group-item">
     <strong> chipSet:- </strong>

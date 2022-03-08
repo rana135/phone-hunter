@@ -25,6 +25,7 @@
 /* Card part design */
 .card-img{
     background-color: #07091381;
+    width:90%;
 }
 .card:hover{
     transform: scale(1.1);
@@ -40,18 +41,17 @@
     border: 2px solid gray;
 }
 
-.brand-btn:hover {
+.brand-btn,
+#search-btn:hover {
     transform: scale(1.10);
     transition: transform .3s ease-in-out;
     background: linear-gradient(90deg,#4776e6 0,#5495e9 51%,#4776e6);
     border: 2px solid rgb(255, 0, 200);
     color: rgb(221, 251, 119) !important;
 }
-
-#search-btn:hover{
-    transform: scale(1.10);
-    transition: transform .3s ease-in-out;
-    background: linear-gradient(90deg,#4776e6 0,#5495e9 51%,#4776e6);
-    border: 2px solid gray;
-    color: rgb(221, 251, 119) !important;
+li{
+    line-height: 120%
+    
 }
+
+
