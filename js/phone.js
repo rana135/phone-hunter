@@ -99,7 +99,7 @@ const displayPhoneDetail = phones => {
   <strong> Phone Name:- </strong>
   </h1>
 
-    <img src="${phones.image}" class=" pic   rounded-3 img-fluid" alt="...">
+    <img src="${phones.image}" class="pic bg-primary bg-opacity-25  rounded-3 img-fluid" alt="...">
   </div>
   <div class="card-body w-25">
     <h1 class="card-title ms-3 ">
