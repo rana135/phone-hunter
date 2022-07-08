@@ -1,6 +1,44 @@
 // get error id
 const error = document.getElementById('error')
 
+fetch("https://openapi.programming-hero.com/api/phones?search=phone")
+  .then(response => response.json())
+  .then(data => displayHome(data.data))
+
+const displayHome = (homePhone) => {
+  const displayHomePhones = homePhone.slice(0, 12)
+  const parents = document.getElementById("displayHome");
+  displayHomePhones.forEach(homePhones => {
+    // console.log(homePhones);
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("col")
+    createDiv.innerHTML = `
+            <div class="card rounded-3 text-center ms-3" style="width: 15rem;">
+            <div class="card-body card-img">
+      <img class="w-50 mx-auto mt-4 rounded-3" src="${homePhones.image}" class="card-img-top" alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+        <strong> Phone Name:- </strong>
+        ${homePhones.phone_name}
+        </h5>
+    
+        <p class="card-text">
+        <strong> Phone Brand:- </strong>
+        ${homePhones.brand}
+        </p>
+    
+        <button class="btn btn-primary  brand-btn"data-bs-toggle="modal" data-bs-target="#phone-details" onclick="loadphoneBySlug('${homePhones.slug}')">Details
+        </button>
+    
+      </div>
+    </div>
+            `
+    parents.appendChild(createDiv)
+  })
+}
+
+
 // get button & searchInput:-
 const getButton = buttonField => {
   const inputId = document.getElementById("input-id");
@@ -23,12 +61,14 @@ const getButton = buttonField => {
       .then(data => displayGadget(data.data))
   }
 }
+
 //
 // Mobile will show when searched:-
 const displayGadget = phone => {
   //Slice to get 20 mobiles:-
   const data = phone.slice(0, 20);
   const parents = document.getElementById("displaySearch");
+
   parents.textContent = '';
   // Error Handler:-
   if (phone.length == 0) {
@@ -38,7 +78,7 @@ const displayGadget = phone => {
     error.style.borderRadius = "10px";
     error.style.marginLeft = "280px";
   }
-  else{
+  else {
     data.forEach(phones => {
       console.log(phones);
       const createDiv = document.createElement("div");
@@ -67,7 +107,7 @@ const displayGadget = phone => {
         `
       parents.appendChild(createDiv)
     })
-  } 
+  }
 }
 
 // show phone details:-
@@ -76,6 +116,7 @@ const loadphoneBySlug = slug => {
     .then(response => response.json())
     .then(data => displayPhoneDetail(data.data))
 }
+
 
 ////view phone Full Details:-
 const displayPhoneDetail = phones => {
@@ -90,7 +131,7 @@ const displayPhoneDetail = phones => {
    
 </div>
 <div class="modal-body w-75 mx-auto">
-    <div class="card row-design bg-secondary p-2 text-light bg-opacity-25" id="opacity-style">
+    <div class="card row-design bg-secondary p-2 text-light bg-opacity-50" id="opacity-style">
   <div class="row  g-3">
   <div class="col-md-5">
 

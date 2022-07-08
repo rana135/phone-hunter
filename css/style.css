@@ -1,43 +1,51 @@
-.body-style{
-    background-color: #13141b;
+.card {
+    /* background-color: #13141b;
     background-image: url(/image/bg-image.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: top;
+    background-position: top; */
+    -webkit-box-shadow: 3px 4px 8px 0px #000000;
+    box-shadow: 3px 4px 8px 0px #000000;
 }
 
 /* feature/others align part start */
-.t-align{
+.t-align {
     text-align: center;
     background-color: rgba(13, 13, 196, 0.616);
     color: white;
     border-radius: 7px;
 }
+
 /* img sizing  */
-.pic{
-    margin-top:25rem;
-    width:15rem;
+.pic {
+    margin-top: 16rem;
+    width: 15rem;
     margin-left: 40px;
 }
-.gif{
+
+.gif {
     margin-left: 35%;
 }
+
 /* Card part design */
-.card-img{
+.card-img {
     background-color: #07091381;
-    width:90%;
+    width: 90%;
 }
-.card:hover{
+
+.card:hover {
     transform: scale(1.1);
     transition: .5s ease-in-out;
     border-radius: 30px;
     background-color: antiquewhite;
 }
+
 .brand-btn,
 #search-btn {
-    background: linear-gradient(90deg,#4776e6 0,#8e54e9 51%,#4776e6);;
+    background: linear-gradient(90deg, #4776e6 0, #8e54e9 51%, #4776e6);
+    ;
     font-weight: 700;
-    color:white;
+    color: white;
     border: 2px solid gray;
 }
 
@@ -45,12 +53,31 @@
 #search-btn:hover {
     transform: scale(1.10);
     transition: transform .3s ease-in-out;
-    background: linear-gradient(90deg,#4776e6 0,#5495e9 51%,#4776e6);
+    background: linear-gradient(90deg, #4776e6 0, #5495e9 51%, #4776e6);
     border: 2px solid rgb(255, 0, 200);
     color: rgb(221, 251, 119) !important;
 }
-li{
-    line-height: 120%   
+
+li {
+    line-height: 100%
 }
 
+/* Footer part start */
+footer {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
 
+.footvar {
+    font-size: 10px;
+}
+
+.icon {
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 12px;
+}
